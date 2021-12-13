@@ -69,9 +69,8 @@ namespace DAL.Migrations
                     b.Property<double>("Coef")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Description")
+                        .HasColumnType("integer");
 
                     b.Property<Guid>("MatchId")
                         .HasColumnType("uuid");
@@ -248,8 +247,8 @@ namespace DAL.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("Money")
-                        .HasColumnType("bigint");
+                    b.Property<decimal>("Money")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -498,7 +497,7 @@ namespace DAL.Migrations
             modelBuilder.Entity("DAL.Models.Bets", b =>
                 {
                     b.HasOne("DAL.Models.Matches", "Match")
-                        .WithMany()
+                        .WithMany("Bets")
                         .HasForeignKey("MatchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -637,6 +636,11 @@ namespace DAL.Migrations
             modelBuilder.Entity("DAL.Models.Articles", b =>
                 {
                     b.Navigation("Comments");
+                });
+
+            modelBuilder.Entity("DAL.Models.Matches", b =>
+                {
+                    b.Navigation("Bets");
                 });
 
             modelBuilder.Entity("DAL.Models.User", b =>

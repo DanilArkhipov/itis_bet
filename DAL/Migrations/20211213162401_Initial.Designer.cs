@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DAL.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20210603151728_account")]
-    partial class account
+    [Migration("20211213162401_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,7 +52,12 @@ namespace DAL.Migrations
                     b.Property<int>("Sport")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Articles");
                 });
@@ -66,9 +71,8 @@ namespace DAL.Migrations
                     b.Property<double>("Coef")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Description")
+                        .HasColumnType("integer");
 
                     b.Property<Guid>("MatchId")
                         .HasColumnType("uuid");
@@ -97,17 +101,14 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
-
-                    b.Property<Guid?>("UserId1")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ArticleId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
@@ -248,8 +249,8 @@ namespace DAL.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("Money")
-                        .HasColumnType("bigint");
+                    b.Property<decimal>("Money")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -484,10 +485,21 @@ namespace DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("DAL.Models.Articles", b =>
+                {
+                    b.HasOne("DAL.Models.User", "User")
+                        .WithMany("Articles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("DAL.Models.Bets", b =>
                 {
                     b.HasOne("DAL.Models.Matches", "Match")
-                        .WithMany()
+                        .WithMany("Bets")
                         .HasForeignKey("MatchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -505,7 +517,9 @@ namespace DAL.Migrations
 
                     b.HasOne("DAL.Models.User", "User")
                         .WithMany("Comments")
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Article");
 
@@ -626,8 +640,15 @@ namespace DAL.Migrations
                     b.Navigation("Comments");
                 });
 
+            modelBuilder.Entity("DAL.Models.Matches", b =>
+                {
+                    b.Navigation("Bets");
+                });
+
             modelBuilder.Entity("DAL.Models.User", b =>
                 {
+                    b.Navigation("Articles");
+
                     b.Navigation("Comments");
 
                     b.Navigation("Passport");

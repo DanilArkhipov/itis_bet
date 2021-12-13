@@ -29,6 +29,8 @@ namespace DAL.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     ProfileId = table.Column<Guid>(type: "uuid", nullable: false),
                     PassportId = table.Column<Guid>(type: "uuid", nullable: false),
+                    Money = table.Column<decimal>(type: "numeric", nullable: false),
+                    CanBet = table.Column<bool>(type: "boolean", nullable: false, defaultValue: true),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -204,8 +206,6 @@ namespace DAL.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    LastName = table.Column<string>(type: "text", nullable: true),
                     Serial = table.Column<string>(type: "text", nullable: true),
                     Number = table.Column<string>(type: "text", nullable: true),
                     Issued = table.Column<string>(type: "text", nullable: true)
@@ -227,8 +227,8 @@ namespace DAL.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Money = table.Column<long>(type: "bigint", nullable: false),
-                    CanBet = table.Column<bool>(type: "boolean", nullable: false, defaultValue: true)
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    LastName = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -246,9 +246,8 @@ namespace DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-
                     MatchId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<int>(type: "integer", nullable: false),
                     Coef = table.Column<double>(type: "double precision", nullable: false),
                     Status = table.Column<string>(type: "varchar(255)", nullable: false)
                 },

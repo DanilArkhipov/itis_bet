@@ -10106,25 +10106,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexander Putilin\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\strel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alexander Putilin\\source\\repos\\itis_bet\\Itis-bet\\Itis-bet.csproj",
+      "projectUniqueName": "D:\\GitHUB\\itis_bet\\Itis-bet\\Itis-bet.csproj",
       "projectName": "Itis-bet",
-      "projectPath": "C:\\Users\\Alexander Putilin\\source\\repos\\itis_bet\\Itis-bet\\Itis-bet.csproj",
-      "packagesPath": "C:\\Users\\Alexander Putilin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alexander Putilin\\source\\repos\\itis_bet\\Itis-bet\\obj\\",
+      "projectPath": "D:\\GitHUB\\itis_bet\\Itis-bet\\Itis-bet.csproj",
+      "packagesPath": "C:\\Users\\strel\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHUB\\itis_bet\\Itis-bet\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Alexander Putilin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\strel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -10137,14 +10132,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Alexander Putilin\\source\\repos\\itis_bet\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\Alexander Putilin\\source\\repos\\itis_bet\\BLL\\BLL.csproj"
+            "D:\\GitHUB\\itis_bet\\BLL\\BLL.csproj": {
+              "projectPath": "D:\\GitHUB\\itis_bet\\BLL\\BLL.csproj"
             },
-            "C:\\Users\\Alexander Putilin\\source\\repos\\itis_bet\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\Alexander Putilin\\source\\repos\\itis_bet\\DAL\\DAL.csproj"
+            "D:\\GitHUB\\itis_bet\\DAL\\DAL.csproj": {
+              "projectPath": "D:\\GitHUB\\itis_bet\\DAL\\DAL.csproj"
             },
-            "C:\\Users\\Alexander Putilin\\source\\repos\\itis_bet\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Alexander Putilin\\source\\repos\\itis_bet\\Infrastructure\\Infrastructure.csproj"
+            "D:\\GitHUB\\itis_bet\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\GitHUB\\itis_bet\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -10188,6 +10183,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.17, 3.1.17]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -10196,7 +10197,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
       }
     }
   }
