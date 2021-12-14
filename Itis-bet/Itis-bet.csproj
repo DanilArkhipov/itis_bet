@@ -3,7 +3,6 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <RootNamespace>Itis_bet</RootNamespace>
-      <UserSecretsId>7d4279a5-e212-466f-918b-be3aa862e86c</UserSecretsId>
       <SignAssembly>false</SignAssembly>
       <DelaySign>false</DelaySign>
   </PropertyGroup>
@@ -27,5 +26,7 @@
     <ItemGroup>
       <Folder Include="wwwroot\images\Articles\" />
     </ItemGroup>
+
+    <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
     
 </Project>
